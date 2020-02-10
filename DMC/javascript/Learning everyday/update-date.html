@@ -1,0 +1,18 @@
+
+<script language="JavaScript">
+function modi()
+{
+   var str="UpDate:"+document.lastModified;
+   document.title=str;
+   window.status=str;
+}
+</script>
+
+<body onLoad="modi()">
+
+<form name="myForm">
+<textarea name="myText" rows="1" cols="40">----</textarea>
+</form>
+<script language="JavaScript">
+   document.myForm.myText.value="UpDate:"+document.lastModified;
+</script>

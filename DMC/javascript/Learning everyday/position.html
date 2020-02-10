@@ -1,0 +1,40 @@
+<div id="visitLevel">（ここに表示されます）</div>
+<script language="JavaScript"><!--
+var lev=["研修生","新入社員","係員","主任","係長","課長","部長","常務","専務","社長"];
+var cou=[0,10,25,40,60,80,110,140,170,200];
+if(lev.length!=cou.length)
+{
+   alert("JavaScript Error!\n配列levとcouの要素数が違います\n+1JavaScript");
+}else{
+   var key="freekeyword";
+   var n=getCookie(key);
+   if(n==""){n=0}
+   for(var i=cou.length;i>=0;i--)
+   {
+     if(n>=cou[i]){break;}
+   }
+   document.getElementById("visitLevel").innerHTML="あなたの役職："+lev[i];
+   n++;
+   setCookie(key,n);
+}
+function getCookie(key)
+{
+   var s,e;
+   var c=document.cookie+";";
+   var b=c.indexOf(key,0);
+   if(b!=-1)
+   {
+     c=c.substring(b,c.length);
+     s=c.indexOf("=",0)+1
+     e=c.indexOf(";",s);
+     return(unescape(c.substring(s,e)));
+   }
+   return("");
+}
+function setCookie(key,n)
+{
+   var myDate=new Date();
+   myDate.setTime(myDate.getTime()+6*30*24*60*60*1000);
+   document.cookie=" "+key+"="+escape(n)+"; expires="+myDate.toGMTString();
+}
+// --></script>

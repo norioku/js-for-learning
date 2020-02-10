@@ -1,0 +1,33 @@
+<script language="JavaScript"><!--
+var key="hello test";
+var n=getCookie(key);
+if(n=="")
+{
+   alert("こんにちは！\n初めてこのページに訪れました");
+}else{
+   alert("まいどおおきに！\n"+n+"回目の訪問ありがとうございます");
+}
+n++;
+setCookie(key,n);
+
+function getCookie(key)
+{
+   var s,e;
+   var c=document.cookie+";";
+   var b=c.indexOf(key,0);
+   if(b!=-1)
+   {
+     c=c.substring(b,c.length);
+     s=c.indexOf("=",0)+1
+   e=c.indexOf(";",s);
+   return(unescape(c.substring(s,e)));
+   }
+   return("");
+}
+function setCookie(key,n)
+{
+   var myDate=new Date();
+   myDate.setTime(myDate.getTime()+6*30*24*60*60*1000);
+   document.cookie=" "+key+"="+escape(n)+"; expires="+myDate.toGMTString();
+}
+// --></script>
